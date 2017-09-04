@@ -1,0 +1,27 @@
+
+  <div ng-controller="UserController" data-ng-init="getAllUsers()">
+  
+        <center><h1>Users List</h1></center>
+        
+        <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:700}"></div>
+        
+        <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+
+  	 <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>UserName</th><th>FirstName</th><th>LastName</th><th>Email</th><th>Role</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="user in userList"><td>{{user.username}}</td><td>{{user.firstname}}</td><td>{{user.lastname}}</td><td>{{user.email}}</td><td>{{user.role.rolename}}</td><td>
+  				<a class="btn btn-info glyphicon glyphicon-pencil"  ng-click="openedit(user)">Edit</a>
+          <a class="btn btn-danger" onClick="return false" ng-click="deleteUser(user._id)">
+          <span class = "glyphicon glyphicon-remove"></span>Delete</a>
+  				</td></tr>
+
+              </div>
+
+      
+  <div>
+  <button type = "button" class = "btn btn-primary pull-left glyphicon glyphicon-plus"  ng-click="open()">Add User</button></div>
+              
+  </div>
+

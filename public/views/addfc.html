@@ -1,0 +1,17 @@
+  <div>
+        <form ng-submit="submit()" name="addfc" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email" style="
+      height: auto; width: auto";>
+      <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+        <td><center><h4>Add Fc Form</h4></center></td>
+                  <tr>
+                  <table align="center"><tr>
+   <lable><td>Fc Id</td><td><input type=text ng-model="fc.fc_id" placeholder="Enter Fc Id" required/></td>
+   </tr>   </lable><tr>
+  <lable><td>Fc Location</td><td><input type=text ng-model="fc.fc_location" placeholder="Enter Fc Location" required/></td>
+      </tr></lable>
+  <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+  </tr></lable></table></form>
+           </div>
+                         

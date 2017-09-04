@@ -1,0 +1,25 @@
+  <div>
+        <form ng-submit="submit()" name="addview" class="ng-pristine ng-invalid ng-invalid-required" style="
+      height: auto; width: auto";>
+      <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+        <td><center><h4>Add View Form</h4></center></td>
+                  <tr>
+                  <table align="center"><tr>
+   <lable><td>Id</td><td><input name="id" type="number" ng-model="view.id" placeholder="Enter View Id" required/></td>
+   </tr>   </lable>
+    <div ng-messages="addview.id.$error" role="alert">
+       <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+       </div>
+   <tr>
+  <lable><td>Name</td><td><input type=text ng-model="view.name" placeholder="Enter View Name" required/></td>
+      </tr></lable><tr>
+  <lable><td>Path</td><td><input type=text ng-model="view.path" placeholder="Enter Path" required/></td>
+  </tr></lable></tr><tr><td> </td>
+  <lable><td><button type="Add" class="btn primary-btn btn btn-success" >Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+  </tr></lable></table></form>
+           </div>
+                         

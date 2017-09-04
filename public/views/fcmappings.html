@@ -1,0 +1,23 @@
+
+  <div ng-controller="FcMappingController" data-ng-init="getAllFcMappings()">
+    
+              <center><h1>Fc Mappings List</h1></center>
+               <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+                <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:700}"></div>
+              <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>Primary Fc</th><th>Secondary Fc</th><th>Priority</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="fcmapping in fcMappingList"><td>{{fcmapping.primary_fc.fc_id}}</td><td>{{fcmapping.secondary_fc.fc_id}}</td><td>{{fcmapping.priority}}</td><td>
+          <a class="btn btn-info glyphicon glyphicon-pencil" ng-click="openedit(fcmapping)">Edit</a>
+  				<a class="btn btn-danger" onClick="return false" ng-click="deleteFcMapping(fcmapping._id)">
+          <span class = " glyphicon glyphicon-remove"></span>Delete</a>
+  				
+  				</td></tr>
+
+              </div>
+
+              <div><button type = "button" class = "btn btn-primary pull-left glyphicon glyphicon-plus"  ng-click="open()">Add Fc Mappings</button></div>
+              
+  </div>
+

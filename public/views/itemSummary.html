@@ -1,0 +1,40 @@
+<div ng-controller="PendingController" data-ng-init="getPendingItemView()">
+  	        
+              <center><h1>Item Summary</h1></center>
+             <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>  
+              <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:1000}"></div>  
+              <div>
+
+                 <lable><b>Filter By Fc : </b><select  ng-change="filteritemfc()" ng-model="filterbyfc" >
+          <option ng-repeat="fc in fcList" value="{{fc.fc_id}}">
+                {{fc.fc_location}}
+            </option>     
+              </select>
+            </lable>
+        <button type="button" class = "pull-right btn btn-primary glyphicon glyphicon-search"  ng-click="pendingItemSearch()">Search</button>
+
+       <input type="text" class = "pull-right search" ng-model="pendingitemsearch" placeholder="Search..." >
+
+  				<table class="table table-striped table-bordered"><thead><tr><th>SKU</th><th>Item</th><th>Total Ordered Qty</th><th>Total Available Qty</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="pending in currentPendingItems">
+            <td>{{pending._id}}</td>
+            <td>{{pending.item_name}}</td>
+          <td>{{pending.total_ordered_qty}}</td>
+           <td>{{pending.total_available_qty}}</td>
+           <td><button type="button" class = "btn btn-primary" ng-click="showItemDetails(pending)"> Find </button>
+           
+         </td>
+          	</tr></table>
+  				</div>
+
+           <div>
+
+       <center><pagination total-items="totalPendingItems" ng-model="currentItemPage" max-size="maxSize" 
+        ng-change="itemPageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="pendingItemsPerPage"></pagination></center>
+    <pre>Page: {{currentItemPage}} / {{numPages}}</pre>
+
+              
+   </div>
+      </div>

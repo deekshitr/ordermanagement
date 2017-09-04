@@ -1,0 +1,65 @@
+<div ng-controller="PendingController" data-ng-init="getOrderDetails()">
+  	        
+              <center><h1>Order Details</h1></center>
+               <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+           
+              <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>OrderId</th><th>Qty Ordered</th><th>Qty Available</th><th>Qty Fullfilled</th><th>SKU</th><th>Item Name</th><th>FC ID</th><th>OMS Status</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="pending in finalList"><td>{{pending.order_id}}</td><td>{{pending.ordered_qty}}</td><td>{{pending.available_qty}}</td><td><input type="text" id="{{pending._id}}" ng-model="pending.fullfilled_qty" disabled/></td><td>{{pending.item_details.item_code}}</td><td>{{pending.item_details.item_name}}</td><td>{{pending.fc}}</td><td bgcolor="{{pending.omsstatus}}"></td>
+  				<td><button type="button" class = "btn btn-primary"  ng-click="supplierDetails(pending)" ng-show="pending.omsstatus!='DarkSlateBlue'"> Find </button>
+            <button type="button" class = "btn btn-primary"  ng-click="updatePending(pending)" ng-show="pending.omsstatus!='DarkSlateBlue'">Update</button>
+            <button type="button" class = "btn btn-primary"  ng-click="ShowTable(pending)"  ng-show="pending.agreed_supplier.length>0">Show</button>
+         </td>
+          
+  				</div>
+
+          <div>
+
+            <table class="table table-striped table-bordered" ng-show = "IsHidden">
+               <tr align="center"><th colspan="3"><center> <h3>Commited Supplier</h3></center></th></tr>
+          
+              <tr><th> Id</th><th> Name</th><th>Committed QTY</th></tr>
+               <tr ng-repeat="supp in commSupplierList">
+                <td>{{supp.supplier_id.cust_id}}</td>
+                <td>{{supp.supplier_id.cust_name}}</td>
+                 <td>{{supp.agreed_qty}}</td></tr>
+                 <tr><td></td><td></td><td colspan="3"><button type="button" class = "btn btn-primary"  ng-click="HideTable()"  ng-show="pending.omsstatus!='DarkSlateBlue'">Hide</button></td></tr>
+              </table>
+          </div>
+
+          <div>
+           
+           <table class="table table-striped table-bordered" align="center" ng-Show="currentSupplier">
+              <tr><lable><td>Supplier Name</td><td><angucomplete-alt id="supplier"
+              placeholder="Search Supplier"
+              pause="400"
+              selected-object="addSupplierInfoObj"
+              remote-url="http://localhost:9090/api/suppliersearch/"
+              remote-url-data-field="result"
+              title-field="cust_id,cust_name,city"
+              description-field="cust_id,cust_name,city"
+              input-class="form-control form-control-small"/></td>
+        
+      </tr></lable>
+              <tr align="center"><th colspan="2"><center> <h3>Supplier Information</h3></center></th></tr>
+  						<tr><th> Id</th><td>{{currentSupplier.cust_id}}</td></tr>
+  						<tr><th> Name</th><td>{{currentSupplier.cust_name}}</td></tr>
+  						<tr ><th>Address</th><td>{{currentSupplier.add_1}},{{currentSupplier.add_2}}</td></tr>
+  						<tr ><th>Phone Number</th><td>{{currentSupplier.phone_1}},{{currentSupplier.phone_2}}</td></tr>
+  						<tr ><th>Mobile</th><td>{{currentSupplier.mobile}}</td></tr>
+  						<tr><th>City</th><td>{{currentSupplier.city}}</td></tr>
+
+              <tr><td colspan=2>
+
+  						<div align="center"><button data-ng-disabled="checkPrevSupplier()" ng-click="prevSupplier()" class = "btn btn-primary">Previous Supplier</button> 
+              <button ng-click="agreedSupplier()" class = "btn btn-primary">Agrees to Fulfill</button>
+              <button data-ng-disabled="checkNextSupplier()" ng-click="noStock()" class = "btn btn-primary">Unable to Fulfill</button>
+
+              <button ng-click="currentStock()" class = "btn btn-primary">Current Stock</button>
+               </div></td></tr>
+             </table>
+  							</center>
+  				</div>
+      </div>

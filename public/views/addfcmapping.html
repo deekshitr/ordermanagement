@@ -1,0 +1,42 @@
+        <div>
+          <form name="addfcmapping" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+        height: auto; width: auto";>
+         <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+        <td><center><h4>Add FC Mapping Form</h4></center></td>
+                    <tr>
+                    <table align="center"><tr>
+        <lable><td>Primary Fc</td><td><angucomplete-alt id="primary_fc"
+              placeholder="Search Primary Fc"
+              pause="400"
+              selected-object="addPrimaryFcObj"
+              remote-url="http://10.27.20.6:9090/api/primaryfcsearch/"
+              remote-url-data-field="result"
+              title-field="fc_id"
+              description-field="fc_location"
+              input-class="form-control form-control-small"/></td>
+        </tr></lable><tr>
+        <lable><td>Secondary Fc</td><td><angucomplete-alt id="secondary_fc"
+              placeholder="Search Secondary Fc"
+              pause="400"
+              selected-object="addSecondaryFcObj"
+              remote-url="http://10.27.20.6:9090/api/primaryfcsearch/"
+              remote-url-data-field="result"
+              title-field="fc_id"
+              description-field="fc_location"
+              input-class="form-control form-control-small"/></td>
+        </tr></lable><tr>
+        <lable><td>Priority</td><td><input name="priority" type="number" ng-model="fcmapping.priority" placeholder="Enter Priority" required/></td>
+        </tr></lable>
+        <div ng-messages="addfcmapping.priority.$error" role="alert">
+         <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        </div>
+       <tr><td> </td>
+        <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+        </tr></lable></table></form>
+             </div>
+
+                             

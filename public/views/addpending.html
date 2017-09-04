@@ -1,0 +1,50 @@
+		<div>
+		      <form name="addpending" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+		    height: auto; width: auto";>
+		    
+		        <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>     
+		    <td><center><h4>Add Pending Form</h4></center></td>
+		                <tr>
+		                <table align="center"><tr>
+		 <lable><td>Order ID</td><td><input name="oid" type="number" ng-model="pending.order_id" placeholder="Enter Order Id" required/></td>
+		 </tr>   </lable>
+		 <div ng-messages="addpending.oid.$error" role="alert">
+  		 <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+       </div>
+		 <tr>
+		<lable><td>QtyOrdered</td><td><input name="qtyordered" type="number" ng-model="pending.ordered_qty" placeholder="Enter Qty Ordered" required/></td>
+		    </tr></lable>
+		     <div ng-messages="addpending.qtyordered.$error" role="alert">
+  		 <div ng-message="number">
+           <center>Must be a number!</center>
+         </div>
+        </div>
+		    <tr>
+		<lable><td>QtyAvailable</td><td><input name="qtyavailable" type="number" ng-model="pending.available_qty" placeholder="Enter Qty Available" required/></td>
+		</tr></lable>
+		<div ng-messages="addpending.qtyavailable.$error" role="alert">
+  		 <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        </div>
+		<tr>
+		<lable><td>SKU</td><td><input type=text ng-model="pending.sku" placeholder="Enter SKU" required/></td>
+		</tr></lable><tr>
+		<lable><td>FC Id</td><td><input name="fc" type="number" ng-model="pending.fc" placeholder="Enter FC Id" required/></td>
+		</tr></lable>
+		<div ng-messages="addpending.fc.$error" role="alert">
+  		 <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        </div>
+		<tr><td> </td>
+		<lable><td>
+			<button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; 
+			<button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+		</tr></lable></table></form>
+		         </div>
+		                         

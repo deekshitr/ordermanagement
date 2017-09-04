@@ -1,0 +1,20 @@
+	<div>
+		<form name="additem" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+	    height: auto; width: auto";>
+	      <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+			<table align="center"><tr>
+				<td><center><h4>Add Item Form</h4></center></td>
+				<tr>
+				<table align="center"><tr>
+					<lable><td>Item Id</td><td><input type=text ng-model="item.item_code" placeholder="Enter Item Id" required/></td>
+					</tr>   </lable><tr>
+					<lable><td>Item Name</td><td><input type=text ng-model="item.item_name" placeholder="Enter Item Name" required/></td>
+					</tr></lable><tr>
+					<lable><td>Item Pack</td><td><input type=text ng-model="item.pack" placeholder="Enter Item Pack" /></td>
+					</tr></lable>
+					<tr></tr><tr><td> </td>
+					<lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+	</tr></lable></table></form>
+	         </div>

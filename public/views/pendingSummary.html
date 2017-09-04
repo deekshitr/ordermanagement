@@ -1,0 +1,59 @@
+<div ng-controller="PendingController" data-ng-init="getPendingView()">
+  	        
+              <center><h1>Pending Summary</h1></center>
+             <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>  
+              <div>
+             <lable><b>Filter By Fc : </b><select  ng-change="filterfc()" ng-model="filterbyfc" >
+          <option ng-repeat="fc in fcList" value="{{fc.fc_id}}">
+                {{fc.fc_location}}
+            </option>     
+              </select>
+            </lable>
+
+            <button type="button" class = "pull-right btn btn-primary glyphicon glyphicon-search"  ng-click="pendingOrderSearch()">Search</button>
+
+  <input type="text" class = "pull-right search" ng-model="pendingordersearch" placeholder="Search..." >
+</div>
+               <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:700}"></div>
+              <div>
+  				<table class="table table-striped table-bordered" ><thead><tr><th>OrderId</th><th>Original Status</th><th>OMS Status</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="pending in currentPendings">
+
+          <td width="150">{{pending.order_id}}</td>
+          <td bgcolor="{{pending.originalstatus}}" width="100">{{pending.originalstatus}}</td>
+          <td bgcolor="{{pending.omsstatus}}" width="100">{{pending.omsstatus}}</td>
+          	<td width="150"><button type="button" class = "btn btn-primary"  ng-click="showDetails(pending.order_id)">Details</button></td></tr>
+             </table>
+          </div>
+
+          <div>
+            <table class="table table-striped table-bordered">
+            <tr><th colspan="2" width="200">Original Status</th>
+              <th colspan="2" width="200">OMS Status</th>
+               </tr> 
+               <tr>
+                <td bgcolor="red" width="50"></td>
+                <td width="150">No Qty Available</td>
+                <td bgcolor="red" width="50"></td>
+                <td width="150"> No Qty Available</td></tr>
+                <tr>
+                  <td bgcolor="orange" width="50"></td>
+                  <td width="150">Partial Qty Available</td>
+                  <td bgcolor="yellow" width="50"></td>
+                  <td width="150">Partial Qty Available</td></tr>
+               <tr><td bgcolor="green" width="50"></td>
+                <td>Ordered Qty Fullfilled</td>
+                <td bgcolor="DarkSlateBlue" width="50"></td>
+                <td width="150">  Ordered Qty Fullfilled</td></tr>
+            </table>
+          </div>
+
+          <div> 
+          
+            <center> <pagination total-items="totalPendings" ng-model="currentPage" max-size="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="pendingsPerPage"></pagination></center>
+    <pre>Page: {{currentPage}} / {{numPages}}</pre>
+              
+  				
+      </div>

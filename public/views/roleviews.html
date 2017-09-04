@@ -1,0 +1,24 @@
+<div ng-controller="RoleController" data-ng-init="getAllMenus()">
+<form ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+            height: auto; width: auto";>
+    <center><h4>Add Access</h4></center>
+     <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+    
+
+    <table class="table table-striped table-bordered"><thead><tr><th>Id</th><th>Name</th><th>Actions</th></tr></thead>
+                <tr ng-repeat="view in viewList">
+                 <lable><td>{{view.id}}</td></lable>
+                <lable><td>{{view.name}}</td></lable>
+                <lable><td><button type="button" class = "btn btn-primary glyphicon glyphicon-plus" ng-disabled="checkAddView(view._id)" ng-click="addView(view._id)">Add View</button>
+                 <button type="button"  class = "btn btn-danger" ng-disabled="checkRemoveView(view._id)" ng-click="removeView(view._id)">
+                 <span class = " glyphicon glyphicon-remove"></span>Remove View</button></td></lable>
+               <tr>
+                    <tr></tr><tr><td> </td>
+                    <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+                    </tr></lable></table></form>
+
+ </div>
+
+        

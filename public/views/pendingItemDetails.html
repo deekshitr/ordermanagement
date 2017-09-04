@@ -1,0 +1,70 @@
+<div ng-controller="PendingController" data-ng-init="getSkuDetails()">
+  
+  	         <center><h1>Sku Details</h1></center>
+             <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div> 
+              <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>SKU</th><th>Item</th><th>Total Ordered Qty</th><th>Total Available Qty</th><th>Actions</th></tr></thead>
+  				<tr><td>{{pendingItemDetails._id}}</td><td>{{pendingItemDetails.item_name}}</td><td>{{pendingItemDetails.total_ordered_qty}}</td>
+            <td><input type="text" id="{{pendingItemDetails._id}}" ng-model="pendingItemDetails.total_available_qty" disabled/></td>
+  				<td>
+            <button type="button" class = "btn btn-primary"  ng-click="updateItemPending(pending)">Update</button>
+            <button type="button" class = "btn btn-primary"  ng-click="ShowItemTable()">Show</button>
+         </td>
+          
+  				</div>
+
+          <div>
+
+            <table class="table table-striped table-bordered" ng-show = "IsHidden">
+               <tr align="center"><th colspan="3"><center> <h3>Commited Supplier</h3></center></th></tr>
+          
+              <tr><th> Id</th><th> Name</th><th>Committed QTY</th></tr>
+               <tr ng-repeat="supp in suppInfoList">
+                <td>{{supp.supplier_id.cust_id}}</td>
+                <td>{{supp.supplier_id.cust_name}}</td>
+                 <td>{{supp.agreed_qty}}</td></tr>
+                 <tr><td></td><td></td><td colspan="3"><button type="button" class = "btn btn-primary"  ng-click="HideTable()">Hide</button></td></tr>
+              </table>
+          </div>
+
+
+
+  				<div>
+           
+           
+  					<table class="table table-striped table-bordered" align="center" ng-Show="currentSupplier">
+               <tr><lable><td>Supplier Name</td><td><angucomplete-alt 
+                ng-model="supplierinfosearch"
+              id="supplier"
+              placeholder="Search Supplier"
+              pause="400"
+              selected-object="addSupplierInfoObj"
+              remote-url="http://localhost:9090/api/suppliersearch/"
+              remote-url-data-field="result"
+              title-field="cust_id,cust_name,city"
+              description-field="cust_name,city"
+              input-class="form-control form-control-small search"/></td>
+        </tr></lable>
+
+              <tr align="center"><th colspan="2"><center> <h3>Supplier Information</h3></center></th></tr>
+  						<tr><th> Id</th><td>{{currentSupplier.cust_id}}</td></tr>
+  						<tr><th> Name</th><td>{{currentSupplier.cust_name}}</td></tr>
+  						<tr ><th>Address</th><td>{{currentSupplier.add_1}},{{currentSupplier.add_2}}</td></tr>
+  						<tr ><th>Phone Number</th><td>{{currentSupplier.phone_1}},{{currentSupplier.phone_2}}</td></tr>
+  						<tr ><th>Mobile</th><td>{{currentSupplier.mobile}}</td></tr>
+  						<tr><th>City</th><td>{{currentSupplier.city}}</td></tr>
+
+              <tr><td colspan=2>
+
+  						<div align="center"><button data-ng-disabled="checkPrevSupplier()" ng-click="prevSupplier()" class = "btn btn-primary">Previous Supplier</button> 
+              <button ng-click="agreedSupplier()" class = "btn btn-primary">Agrees to Fulfill</button>
+              <button ng-click="noItemStock()" class = "btn btn-primary">Unable to Fulfill</button>
+
+              <button ng-click="currentItemStock()" class = "btn btn-primary">Current Stock</button>
+               </div></td></tr>
+             </table>
+  							</center>
+  				</div>
+      </div>

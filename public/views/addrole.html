@@ -1,0 +1,19 @@
+		<div>
+			<form ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+			height: auto; width: auto";>
+			 
+			 <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+			<td><center><h4>Add Role Form</h4></center></td>
+			<tr>
+				<table align="center"><tr>
+					<lable><td>Role ID</td><td><input type=text ng-model="role.roleid" placeholder="Enter RoleId" required/></td>
+					</tr>   </lable><tr>
+					<lable><td>Role Name</td><td><input type=text ng-model="role.rolename" placeholder="Enter RoleName" required/></td>
+					</tr></lable></lable><tr>
+					<tr></tr><tr><td> </td>
+					<lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+					</tr></lable></table></form>
+				</div>
+				

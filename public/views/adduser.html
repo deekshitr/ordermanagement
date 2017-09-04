@@ -1,0 +1,41 @@
+ <div>
+          <form ng-submit="submit()" name="adduser" class="ng-pristine ng-invalid ng-invalid-required ng-valid-email" style="
+        height: auto; width: auto";>
+        <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+         </div>
+         <td><center><h4>Add User Form</h4></center></td>
+                  <tr>
+                   <table align="center"><tr>
+    <lable><td>User Name</td><td><input type=text ng-model="user.username" placeholder="Enter UserName" required/></td>
+    </tr>   </lable><tr>
+   <lable><td>First Name</td><td><input type=text ng-model="user.firstname" placeholder="Enter FirstName" required/></td>
+       </tr></lable><tr>
+   <lable><td>Last Name</td><td><input type=text ng-model="user.lastname" placeholder="Enter LastName" required/></td>
+   </tr></lable><tr>
+   <lable><td>Password</td><td><input type=password name="password" ng-model="user.password" placeholder="Enter password" required minlength="5" maxlength="15"/></td>
+   </tr></lable>
+   <div  ng-messages="adduser.password.$error" role="alert">
+    <div ng-message="minlength, maxlength">
+         <center>Your Password must be  5 to 15 characters long<center>
+       </div>
+     </div>
+  <tr>
+   <lable><td>E-mail</td><td><input pattern="[^@]+@[^@]+\.[a-zA-Z]{3,6}" type=email ng-model="user.email" placeholder="Enter Email" required/></td>
+   </tr></lable><tr>
+   <lable><td>Role</td><td><select ng-model="user.role._id" required>
+           <option ng-repeat="role in roleList" value="{{role._id}}">
+                 {{role.rolename}}
+             </option>     
+               </select></td>
+   </tr></lable><tr>
+    <lable><td>IsSuper</td><td><select name="issuper" ng-model="user.issuper" required>
+                <option value="">Select From Dropdown</option>
+               <option value="true">true</option>
+               <option value="false">false</option>
+               </select></td>
+   </tr></lable><tr></tr><tr><td> </td>
+  <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+   </tr></lable></table></form>
+        </form>
+             </div>

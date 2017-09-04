@@ -1,0 +1,59 @@
+	<div>
+	      <form name="addsupplier" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+	    height: auto; width: auto";>
+	     <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+	            <table align="center"><tr>
+	    <td><center><h4>Add Supplier Form</h4></center></td>
+	                <tr>
+	                <table align="center"><tr>
+	 <lable><td>Supplier Id</td><td><input type=text ng-model="supplier.cust_id" placeholder="Enter Supplier Id" required/></td>
+	 </tr></lable><tr>
+	<lable><td>Supplier Name</td><td><input type=text ng-model="supplier.cust_name" placeholder="Enter Supplier Name" required/></td>
+	    </tr></lable><tr>
+	<lable><td>Supplier Address1</td><td><input type=text ng-model="supplier.add_1" placeholder="Enter Supplier Address1" /></td>
+	</tr></lable><tr>
+	<lable><td>Supplier Address2</td><td><input type=text ng-model="supplier.add_2" placeholder="Enter Supplier Address2" /></td>
+	</tr></lable><tr>
+	<lable><td>Supplier Address3</td><td><input type=text ng-model="supplier.add_3" placeholder="Enter Supplier Address3" /></td>
+	</tr></lable><tr>
+	<lable><td>Supplier City</td><td><input type=text ng-model="supplier.city" placeholder="Enter Supplier City" /></td>
+	</tr></lable><tr>
+	<lable><td>Supplier Pincode</td><td><input type="number" name="pin" ng-model="supplier.pin" placeholder="Enter Supplier Pincode" minlength="6" maxlength="6"/></td>
+	</tr></lable>
+	<div ng-messages="addsupplier.pin.$error" role="alert">
+         <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        <div ng-message="minlength,maxlength">
+        <center>Number Should be 6 digits<center>
+      </div>
+        </div>
+        </div>
+	<tr>
+	<lable><td>Supplier Mobile No</td><td><input type="number" pattern="[0-9]{10}" name="contact" ng-model="supplier.mobile" placeholder="Enter Supplier Mobile No" minlength="10" maxlength="10"/></td>
+	</tr></lable>
+	 <div ng-messages="addsupplier.contact.$error" role="alert">
+         <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        <div ng-message="minlength,maxlength">
+        <center>Number Should be 10 digits<center>
+      </div>
+        </div>
+	<tr>
+	<lable><td>Supplier Email</td><td><input type=email pattern="[^@]+@[^@]+\.[a-zA-Z]{3,6}" ng-model="supplier.email" placeholder="Enter Supplier email" /></td>
+	</tr></lable><tr>	
+	<lable><td>Supplier Weightage</td><td><input name="weightage" type="number" ng-model="supplier.weightage" placeholder="Enter Supplier Weightage" /></td>
+	</tr></lable>
+	<div ng-messages="addsupplier.weightage.$error" role="alert">
+         <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        </div>
+	<tr></tr><tr><td> </td>
+	<lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+	</tr></lable></table></form>
+	</div>
+	                         

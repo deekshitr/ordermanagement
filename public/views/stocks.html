@@ -1,0 +1,42 @@
+
+  <div ng-controller="StockController" data-ng-init="getAllStocks()">
+    
+              <center><h1>Stocks List</h1></center>
+          <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>     
+               <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:700}"></div>
+
+              <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>SKU</th><th>Item Name</th><th>SupplierSKU</th><th>SupplierID</th><th>Supplier Name</th><th>Stock</th><th>Active</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="stock in stockList"><td>{{stock.sku.item_code}}</td><td>{{stock.sku.item_name}}</td><td>{{stock.suppliersku}}</td><td>{{stock.supplier.cust_id}}</td><td>{{stock.supplier.cust_name}}</td><td>{{stock.stock}}</td><td>{{stock.active}}</td><td>
+          <a class="btn btn-info glyphicon glyphicon-pencil"  ng-click="openedit(stock)">Edit</a>
+          <a class="btn btn-danger" onClick="return false" ng-click="deleteStock(stock._id,$event)">
+          <span class = "glyphicon glyphicon-remove"></span>Delete</a>
+  				
+  				</td></tr>
+          </div>
+              
+
+
+
+  <button type="button" class = "pull-right btn btn-primary glyphicon glyphicon-search" ng-click="search()">Search</button>
+
+
+  <input type="text" class = "pull-right search" ng-model="stocksearch" placeholder="Search..." >
+ 
+   
+  </div>
+              <div><button type = "button" class = "btn btn-primary pull-left glyphicon glyphicon-plus"  ng-click="open()">AddStocks</button></div>
+              
+  </div> </table>
+  <div>
+            <a  class="pull-right btn btn-info glyphicon glyphicon-upload" ng-click = "fileUploading()">Upload</a>
+
+
+             <a class="pull-right btn btn-info glyphicon glyphicon-new-window" tabindex="-1"  ng-click="exportData()"
+              >Export</a>
+              </div>
+
+              <div>
+

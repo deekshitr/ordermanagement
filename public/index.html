@@ -1,0 +1,75 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	 <meta charset="UTF-8">
+	 <base href="/">
+
+	<title>Order Managment</title>
+		  
+		 <!-- CSS -->
+	<link rel="stylesheet" href="css/style.css"> <!-- custom styles -->
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap-theme.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/angular-flash-alert/dist/angular-flash.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/angucomplete-alt/angucomplete-alt.css">
+	<link rel="stylesheet" type="text/css" href="libs/angular-busy/dist/angular-busy.min.css">
+			
+		 <!-- JS -->
+		 <script src="libs/angular/angular.min.js"></script>
+		 <script src="libs/angular-messages/angular-messages.js"></script>   
+		 <script src="libs/angular-route/angular-route.min.js"></script>
+         <script src="libs/angular-flash-alert/dist/angular-flash.min.js"></script>
+		 <script src="http://code.jquery.com/jquery.js"></script>
+		 <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script> 
+		 <script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script> 
+		 <script src="libs/angucomplete-alt/dist/angucomplete-alt.min.js"></script> 
+		  <script src="libs/angular-busy/dist/angular-busy.min.js"></script>
+
+		   <script src="libs/ng-table-to-csv/dist/ng-table-to-csv.min.js"></script> 
+		    <script src="libs/alasql/dist/alasql.min.js"></script> 
+		     <script src="libs/aws-sdk/dist/aws-sdk.min.js"></script> 
+		    
+		 <!-- Controllers -->
+		 <script src="js/controllers/UserCtrl.js"></script>
+		 <script src="js/controllers/UserModalCtrl.js"></script>
+		 <script src="js/controllers/PendingCtrl.js"></script>
+		 <script src="js/controllers/PendingModalCtrl.js"></script>
+		 <script src="js/controllers/StockCtrl.js"></script>
+		 <script src="js/controllers/StockModalCtrl.js"></script>
+		 <script src="js/controllers/SupplierCtrl.js"></script>
+		 <script src="js/controllers/SupplierModalCtrl.js"></script>
+		 <script src="js/controllers/ItemCtrl.js"></script>
+		 <script src="js/controllers/ItemModalCtrl.js"></script>
+		 <script src="js/controllers/RoleCtrl.js"></script>
+		 <script src="js/controllers/RoleModalCtrl.js"></script>
+		 <script src="js/controllers/ViewCtrl.js"></script>
+		 <script src="js/controllers/ViewModalCtrl.js"></script>
+		 <script src="js/controllers/FcCtrl.js"></script>
+		 <script src="js/controllers/FcModalCtrl.js"></script>
+		 <script src="js/controllers/SuppliertoFcModalCtrl.js"></script>
+		 <script src="js/controllers/FcMappingCtrl.js"></script>
+		 <script src="js/controllers/FcMappingModalCtrl.js"></script>
+
+		 <!-- Services -->
+		 <script src="js/services/PendingSrc.js"></script>
+		 <script src="js/services/FcSrc.js"></script>
+		 <script src="js/services/PendingItemSrc.js"></script>
+		 <script src="js/services/StocksuploadService.js"></script>
+		 <script src="js/services/ItemsuploadService.js"></script>
+		 <script src="js/services/SuppliersuploadService.js"></script>
+
+		 <script src="js/appRoutes.js"></script>
+		 <script src="js/app.js"></script> 
+		</head>
+		<body ng-app="insightApp">
+		  
+		 <!-- ANGULAR DYNAMIC CONTENT -->
+		
+		
+		 <div  ng-include src="'views/menus.html'"></div>
+		
+		
+		<div ng-view></div>
+
+		</body>
+		</html>

@@ -1,0 +1,25 @@
+<div ng-controller="FcController" data-ng-init="getSupplierDetails()">
+  	        
+              <center><h1>Supplier Summary</h1></center>
+         <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>     
+              <div>
+  				<table class="table table-striped table-bordered"><thead><tr><th>Supplier Id</th><th>Supplier Name</th><th>Supplier Address</th><th>Phone1</th><th>Phone2</th><th>Mobile</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="supplier in currentSuppliers"><td>{{supplier.cust_id}}</td><td>{{supplier.cust_name}}</td><td>{{supplier.add_1}}</td><td>{{supplier.phone_1}}</td><td>{{supplier.phone_2}}</td><td>{{supplier.mobile}}</td>
+  				<td><a class = "btn btn-danger"  ng-click="removeSupplier(supplier._id)">
+          <span class = " glyphicon glyphicon-remove"></span>Remove</a></td></tr>
+
+  				<button type="button" class = "pull-right btn btn-primary glyphicon glyphicon-search"  ng-click="search()">Search</button>
+
+  <input type="text" class = "pull-right search" ng-model="itemsearch" placeholder="Search..." >
+   
+    </div>
+       <div><button type = "button" class = "btn btn-primary pull-left"  ng-click="openSupplier()">Add Supplier</button></div>
+      
+      </table>
+       
+      <center> <pagination total-items="totalSuppliers" ng-model="currentPage" max-size="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="suppliersPerPage"></pagination></center>
+    <pre>Page: {{currentPage}} / {{numPages}}</pre>
+              
+   </div>

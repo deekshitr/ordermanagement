@@ -1,0 +1,16 @@
+    <div ng-controller="UserController" data-ng-init="getLoggedUser()">
+        <center><font color="black"><h2>Order Management System</h2></font></center>
+   <div class="text-right">
+    <h3  ng-show="loggedInUser.username">Hi {{loggedInUser.firstname}}{{loggedInUser.lastname}}!!!</h3></div>
+   <nav class="navbar navbar-inverse" ng-show="loggedInUser.username">
+        <ul class="nav navbar-nav">
+        <li ng-repeat="view in menusList">
+            <a href="{{view.path}}" title="{{view.name}}">{{view.name}}</a>
+        </li>
+
+        <li><button  type="submit" class="btn btn-primary btn-lg glyphicon glyphicon-log-out" ng-click="logout()">Logout</button></li>
+
+        </ul>
+    </nav>
+
+</div>

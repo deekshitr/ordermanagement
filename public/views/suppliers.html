@@ -1,0 +1,55 @@
+
+  <div ng-controller="SupplierController" data-ng-init="getAllSuppliers()">
+
+                <center><h1>Suppliers List</h1></center>
+                 <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+               <div cg-busy="{promise:angubusy,message:'Loading Your Data',delay:300,minDuration:700}"></div>
+
+
+               <div>
+              
+  				<table class="table table-striped table-bordered" tableID="suppliers"><thead><tr><th>Supplier Code</th><th>Supplier Name</th><th>Address1</th><th>Address2</th><th>City</th><th>Phone1</th><th>Phone2</th><th>Mobile</th><th>Weightage</th><th>Actions</th></tr></thead>
+  				<tr ng-repeat="supplier in currentSuppliers"><td>{{supplier.cust_id}}</td><td>{{supplier.cust_name}}</td><td>{{supplier.add_1}}</td><td width="100">{{supplier.add_2}}</td><td>{{supplier.city}}</td><td>{{supplier.phone_1}}</td><td>{{supplier.phone_2}}</td><td>{{supplier.mobile}}</td><td>{{supplier.weightage}}</td><td>
+          <a class="btn btn-info glyphicon glyphicon-pencil"  ng-click="openedit(supplier)">Edit</a>
+  				<a class="btn btn-danger" onClick="return false" ng-click="deleteSupplier(supplier._id,$event)">
+          <span class = " glyphicon glyphicon-remove"></span>Delete</a>
+
+  				
+  				</td></tr>
+
+      
+          
+
+  <button type="button" class = "pull-right btn btn-primary glyphicon glyphicon-search"  ng-click="search()">Search</button>
+
+  <input type="text" class = "pull-right search" ng-model="suppliersearch" placeholder="Search..." >
+
+              <div><button type = "button" class = "btn btn-primary pull-left glyphicon glyphicon-plus"  ng-click="open()">Add Supplier</button></div>
+
+          </table>
+
+              
+              </div>
+
+              <div>
+          <a  class="pull-right btn btn-info glyphicon glyphicon-upload" ng-click = "fileUploading()">Upload</a>
+          
+              <a class="pull-right btn btn-info glyphicon glyphicon-new-window" tabindex="-1"  ng-click="exportData()"
+              >Export</a>
+              </div>
+              <div>
+
+
+     <center> <pagination total-items="totalSuppliers" ng-model="currentPage" max-size="maxSize" ng-change="pageChanged()" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" items-per-page="suppliersPerPage"></pagination></center>
+
+
+    <pre>Page: {{currentPage}} / {{numPages}}</pre>
+
+      </div>         
+
+              
+  </div>
+
+

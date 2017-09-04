@@ -1,0 +1,26 @@
+        <div>
+          <form name="addstock" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+        height: auto; width: auto";>
+        
+            <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>     
+        <td><center><h4>Add Supplier</h4></center></td>
+                    <tr>
+                    <table align="center"><tr>
+
+        <lable><td>Supplier Name</td><td><angucomplete-alt id="supplier"
+              placeholder="Search Supplier"
+              pause="400"
+              selected-object="addSupplierObj"
+              remote-url="http://10.27.20.6:9090/api/suppliersearch/"
+              remote-url-data-field="result"
+              title-field="cust_name"
+              description-field="cust_name"
+              input-class="form-control form-control-small"/></td>
+        </tr></lable><tr>
+        <tr>
+        <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+        </tr></lable></table></form>
+             </div>
+                             

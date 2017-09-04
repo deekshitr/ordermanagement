@@ -1,0 +1,15 @@
+{
+  "name": "angular",
+  "version": "1.0.0",
+  "dependencies": {
+    "bootstrap": "latest",
+    "angular": "latest",
+    "angular-route": "latest",
+    "angular-flash-alert": "~1.1.1",
+    "angular-flash": "~0.1.14",
+    "angucomplete-alt": "~2.1.0",
+    "angular-busy": "~4.1.3",
+    "ng-table-to-csv": "~0.3.0",
+    "alasql": "~0.2.1"
+  }
+}

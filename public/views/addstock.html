@@ -1,0 +1,49 @@
+        <div>
+          <form name="addstock" ng-submit="submit()"class="ng-pristine ng-invalid ng-invalid-required" style="
+        height: auto; width: auto";>
+         <div ng-show="apierror">
+         <center><font color="red"><h1>{{apierror}}</h1></font></center>
+        </div>
+        <td><center><h4>Add Stock Form</h4></center></td>
+                    <tr>
+                    <table align="center"><tr>
+        <lable><td>SKU</td><td><angucomplete-alt id="sku"
+              placeholder="Search SKU"
+              pause="400"
+              selected-object="addSkuObj"
+              remote-url="http://10.27.20.6:9090/api/itemsearch/"
+              remote-url-data-field="result"
+              title-field="item_code"
+              description-field="item_name"
+              input-class="form-control form-control-small"/></td>
+        </tr>   </lable><tr>
+        <lable><td>Supplier SKU</td><td><input type="text" ng-model="stock.suppliersku" placeholder="Enter Supplier Sku" required/></td>
+        </tr></lable><tr>
+        <lable><td>Supplier Name</td><td><angucomplete-alt id="supplier"
+              placeholder="Search Supplier"
+              pause="400"
+              selected-object="addSupplierObj"
+              remote-url="http://10.27.20.6:9090/api/suppliersearch/"
+              remote-url-data-field="result"
+              title-field="cust_name"
+              description-field="cust_name"
+              input-class="form-control form-control-small"/></td>
+        </tr></lable><tr>
+        <lable><td>Stock</td><td><input name="stock" type="text" ng-model="stock.stock" placeholder="Enter Stock" required/></td>
+        </tr></lable>
+        <div ng-messages="addstock.stock.$error" role="alert">
+         <div ng-message="number">
+        <center>Must be a number!</center>
+        </div>
+        </div>
+        <tr>
+        <lable><td>Status</td><td><select name="active" ng-model="stock.active" required>
+                 <option value="">Select From Dropdown</option>
+                <option value="0">0</option>
+                <option value="1">1</option>
+               </select></td>
+        </tr></lable><tr></tr><tr><td> </td>
+        <lable><td><button type="Add" class="btn primary-btn btn btn-success">Submit</button>&nbsp; &nbsp; &nbsp; &nbsp; <button type="Close" class="btn btn-warning btn btn-danger" ng-click="cancel()">Cancel</button></td>    
+        </tr></lable></table></form>
+             </div>
+                             
